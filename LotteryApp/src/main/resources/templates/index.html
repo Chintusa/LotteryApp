@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <!--  script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>-->
+    
+</head>
+<body>
+      <form action="/api/submit" method="get">
+        <div class="registration-container">
+            <h1>Welcome to Project Lottery</h1>
+            <h2>Register</h2>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="number">Number</label>
+                <input type="tel" id="number" name="mobile" placeholder="Enter your number" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="Enter your e-mail" required oninput="validateEmail()">
+                <div id="email-feedback" class="password-feedback"></div>
+            </div>
+            <div class="form-group">
+                <label for="password">Create Password</label>
+                <input type="password" id="password" name="password" placeholder="Create your password" required oninput="validatePassword()">
+                <div id="password-feedback" class="password-feedback"></div>
+            </div>
+            <div class="form-group">
+                <label for="repassword">Re-enter Password</label>
+                <input type="password" id="repassword" name="repassword" placeholder="Re-enter your password" required oninput="validateRePassword()">
+                <div id="repassword-feedback" class="password-feedback"></div>
+            </div>
+            <button type="button" id="sendOtp" class="button" onclick="showOtpSection()">Send OTP</button>
+
+            <div class="otp-section">
+                <div class="form-group">
+                    <label for="otp">Enter OTP</label>
+                    <input type="text" id="otp" name="otp" placeholder="Enter OTP" required>
+                    <div id="otp-feedback" class="otp-feedback"></div>
+                </div>
+                <button type="button" class="button" onclick="return login()">Verify & Register</button>
+            </div>
+        </div>
+    </form>
+    <script th:src="@{/js/index.js}"></script>
+    
+</body>
+</html>
+
